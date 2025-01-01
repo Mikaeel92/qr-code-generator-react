@@ -7,7 +7,8 @@ const App = () => {
   const [input, setInput] = useState('')
 
   const handleClick = () => {
-    
+    setQrCode(input)
+    setInput('')
   }
 
   return (
@@ -17,10 +18,10 @@ const App = () => {
       placeholder='Enter Your Name Or Anything!' 
       value={input} 
       onChange={(e) => setInput(e.target.value)}/>
-      <button disabled={} 
+      <button disabled={input && input.trim !== '' ? false : true} 
       onClick={handleClick} 
       className=''>Generate</button>
-      <QRCode value={} size={40}/>
+      <QRCode value={qrCode} size={40}/>
     </div>
   )
 }
